@@ -1,41 +1,51 @@
-	Attorney Name	Bar Number
-0	Natascha Maria Aabbott	Bar #37329
-1	Tiffani C Aanestad	Bar #11030
-2	Peter Aare	Bar #498327
-3	Bennett L Aaron	Bar #248061
-4	David E Aaron	Bar #100783
-5	James Weldon Aaron	Bar #171560
-6	Jeffrey Michael Aaron	Bar #123473
-7	Kenneth E Aaron	Bar #492469
-8	Robert Cary Aaron	Bar #451029
-9	Roy Lewis Aaron	Bar #171575
-10	Shayla L. Aaron	Bar #1015513
-11	William Aaron	Bar #145526
-12	Ray Aaronian	Bar #60765
-13	Austin Neil Aaronson	Bar #749140
-14	Daniel R Aaronson	Bar #314579
-15	Eric Justin Aaronson	Bar #118051
-16	Geoffrey Stuart Aaronson	Bar #349623
-17	Leah Aaronson	Bar #119044
-18	Linda F Aaronson	Bar #579378
-19	Jessie Margaret Abad	Bar #993433
-20	Maylene Claire Abad	Bar #54399
-21	Maurice Ernesto Abadia	Bar #36651
-22	Ramón A Abadin	Bar #707988
-23	Kenneth M Abagis	Bar #100798
-24	Lourdes Abalia	Bar #43113
-25	Arturo J Aballi Jr.	Bar #166383
-26	Gregory Paul Abaray	Bar #93017
-27	Matisyahu H Abarbanel	Bar #130435
-28	Carlos J Abarca	Bar #193143
-29	Edward John Abare III	Bar #874590
-30	Anthony J Abate	Bar #289558
-31	Maria Elena Abate	Bar #770418
-32	John Paul Abatecola	Bar #112887
-33	Carlos Alberto Abaunza	Bar #99272
-34	Adlin Abay	Bar #467049
-35	Desmond Raymond Abazia	Bar #749354
-36	Joann Abbadessa-Feld	Bar #313319
-37	Mustapha S. Abba Gana	Bar #670960
-38	Syed Abbas	Bar #1009351
-39	Faran Arshad Abbasi	Bar #106261
+	Attorney Name	Bar Number	Eligibility	Profile Picture
+0	Natascha Maria Aabbott	Bar #37329	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+1	Tiffani C Aanestad	Bar #11030	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+2	Peter Aare	Bar #498327	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+3	Bennett L Aaron	Bar #248061	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+4	David E Aaron	Bar #100783	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+5	James Weldon Aaron	Bar #171560	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/0/56/0171560p.jpg
+6	Jeffrey Michael Aaron	Bar #123473	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+7	Kenneth E Aaron	Bar #492469	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+8	Robert Cary Aaron	Bar #451029	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+9	Roy Lewis Aaron	Bar #171575	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+10	Shayla L. Aaron	Bar #1015513	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+11	William Aaron	Bar #145526	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/6/52/0145526p.jpg
+12	Ray Aaronian	Bar #60765	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+13	Austin Neil Aaronson	Bar #749140	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/0/14/0749140p.jpg
+14	Daniel R Aaronson	Bar #314579	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+15	Eric Justin Aaronson	Bar #118051	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+16	Geoffrey Stuart Aaronson	Bar #349623	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/3/62/0349623p.jpg
+17	Leah Aaronson	Bar #119044	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+18	Linda F Aaronson	Bar #579378	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+19	Jessie Margaret Abad	Bar #993433	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/3/43/0993433p.jpg
+20	Maylene Claire Abad	Bar #54399	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/9/39/0054399p.jpg
+21	Maurice Ernesto Abadia	Bar #36651	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+22	Ramón A Abadin	Bar #707988	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/8/98/0707988p.jpg
+23	Kenneth M Abagis	Bar #100798	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+24	Lourdes Abalia	Bar #43113	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+25	Arturo J Aballi Jr.	Bar #166383	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/3/38/0166383p.jpg
+26	Gregory Paul Abaray	Bar #93017	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+27	Matisyahu H Abarbanel	Bar #130435	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+28	Carlos J Abarca	Bar #193143	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+29	Edward John Abare III	Bar #874590	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+30	Anthony J Abate	Bar #289558	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+31	Maria Elena Abate	Bar #770418	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+32	John Paul Abatecola	Bar #112887	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+33	Carlos Alberto Abaunza	Bar #99272	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+34	Adlin Abay	Bar #467049	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+35	Desmond Raymond Abazia	Bar #749354	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+36	Joann Abbadessa-Feld	Bar #313319	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+37	Mustapha S. Abba Gana	Bar #670960	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+38	Syed Abbas	Bar #1009351	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+39	Faran Arshad Abbasi	Bar #106261	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/1/26/0106261p.jpg
+40	Mohad Abbass	Bar #1010543	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+41	Cyrus Abbassi	Bar #114032	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+42	Frank Bernard Abbate	Bar #864366	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+43	Nathaniel Abbate Jr.	Bar #323810	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+44	Nicolas Abbattista	Bar #127077	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+45	Norma Abbene	Bar #44822	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+46	David James Abbey	Bar #228222	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/2/22/0228222p.jpg
+47	Thomas Gordon Abbey	Bar #403040	Not Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+48	Patrick Abbo	Bar #110563	Eligible to Practice Law in Florida	https://www.floridabar.org/app/plugins/tfb/public/images/noprofile_sml.png
+49	Lindsay Rose Abbondandolo	Bar #1011244	Eligible to Practice Law in Florida	https://imageserver.floridabar.org/Images/4/24/1011244p.jpg
