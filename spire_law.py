@@ -1,5 +1,6 @@
-from bs4 import BeautifulSoup
 import time
+import datetime
+import re
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -29,15 +30,25 @@ scrape_size.click()
 WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, "output")))
 bar_numbers = []
 attorney_names = []
+urls = []
 eligibility_status = []
 profile_images = []
+emails = []
+original_search = []
+recent_search = []
+mailing_address = []
+office_numbers = []
+fax_numbers = []
+cell_numbers = []
 for i in range(1,2):
     WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, "output")))
     output = browser.find_elements_by_class_name('profile-compact')
     for profile in output:
         #Getting name
-        attorney_name = profile.find_elements_by_class_name('profile-name')[0].text
-        attorney_names.append(attorney_name)
+        attorney_name = profile.find_elements_by_class_name('profile-name')
+        attorney_names.append(attorney_name[0].text)
+        url = attorney_name[0].find_element_by_tag_name("a")
+        urls.append(url.get_attribute("href"))
         #Getting bar number
         bar_number = profile.find_elements_by_class_name('profile-bar-number')[0].text
         bar_numbers.append(bar_number)
@@ -49,8 +60,38 @@ for i in range(1,2):
         image = image_div[0].find_element_by_tag_name("img")
         image_source = image.get_attribute("src")
         profile_images.append(image_source)
-    next_page = browser.find_element_by_xpath('//*[@title="next page"]')
-    next_page.click()
+        #getting emails
+        email = profile.find_elements_by_class_name('icon-email')
+        if(len(email)>0):
+            emails.append(email[0].text)
+        else:
+            emails.append("N/A")
+        #getting first search date
+        today = datetime.datetime.now()
+        original_search.append(today)
+        #getting addresses and phone numbers
+        address_arr = profile.find_elements_by_class_name("profile-contact")
+        raw_address = address_arr[0].text.replace('\n', " ")
+        office_number = re.findall(r'Office: ([^\s]+)', raw_address)
+        if(office_number):
+            office_numbers.append(office_number[0])
+        else:
+            office_numbers.append("N/A")
+
+        cell_number = re.findall(r'Cell: ([^\s]+)', raw_address)
+        if(cell_number):
+            cell_numbers.append(cell_number[0])
+        else:
+            cell_numbers.append("N/A")
+
+        fax_number = re.findall(r'Fax: ([^\s]+)', raw_address)
+        if(fax_number):
+            fax_numbers.append(fax_number[0])
+        else:
+            fax_numbers.append("N/A")
+
+    #next_page = browser.find_element_by_xpath('//*[@title="next page"]')
+    #next_page.click()
 
 browser.close()
 
@@ -59,5 +100,12 @@ big_data["Attorney Name"] = attorney_names
 big_data["Bar Number"] = bar_numbers
 big_data["Eligibility"] = eligibility_status
 big_data["Profile Picture"] = profile_images
+big_data["Email"] = emails
+big_data["URL"] = urls
+big_data["Original Search"] = original_search
+big_data["Office Number"] = office_numbers
+big_data["Cell Number"] = cell_numbers
+big_data["Fax Number"] = fax_numbers
+
 
 big_data.to_csv('spire_law.csv', sep='\t')
