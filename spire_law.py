@@ -40,7 +40,7 @@ mailing_address = []
 office_numbers = []
 fax_numbers = []
 cell_numbers = []
-for i in range(1,2):
+for i in range(1,21):
     WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, "output")))
     output = browser.find_elements_by_class_name('profile-compact')
     for profile in output:
@@ -51,7 +51,8 @@ for i in range(1,2):
         urls.append(url.get_attribute("href"))
         #Getting bar number
         bar_number = profile.find_elements_by_class_name('profile-bar-number')[0].text
-        bar_numbers.append(bar_number)
+        stripped_num = re.findall(r'\d+',bar_number)
+        bar_numbers.append(stripped_num[0])
         #Getting eligibility
         eligibility = profile.find_elements_by_class_name('eligibility')[0].text
         eligibility_status.append(eligibility)
@@ -69,29 +70,40 @@ for i in range(1,2):
         #getting first search date
         today = datetime.datetime.now()
         original_search.append(today)
-        #getting addresses and phone numbers
-        address_arr = profile.find_elements_by_class_name("profile-contact")
-        raw_address = address_arr[0].text.replace('\n', " ")
-        office_number = re.findall(r'Office: ([^\s]+)', raw_address)
-        if(office_number):
-            office_numbers.append(office_number[0])
-        else:
-            office_numbers.append("N/A")
+        recent_search.append(today)
+        #getting addresses
+        address_arr = profile.find_elements_by_class_name('profile-contact')
+        for a in address_arr:
+            try:
+                mailing_address.append(a.find_element_by_tag_name('p').text.replace('\n'," "))
+            except:
+                mailing_address.append('N/A')
+        #getting phone numbers
+        try:
+             phone_arr = profile.find_elements_by_class_name("profile-contact")
+             raw_phone = phone_arr[0].text.replace('\n', " ")
+             office_number = re.findall(r'Office: ([^\s]+)', raw_phone)
+             if(office_number):
+                office_numbers.append(office_number[0])
+             else:
+                office_numbers.append("N/A")
 
-        cell_number = re.findall(r'Cell: ([^\s]+)', raw_address)
-        if(cell_number):
-            cell_numbers.append(cell_number[0])
-        else:
-            cell_numbers.append("N/A")
-
-        fax_number = re.findall(r'Fax: ([^\s]+)', raw_address)
-        if(fax_number):
-            fax_numbers.append(fax_number[0])
-        else:
-            fax_numbers.append("N/A")
-
-    #next_page = browser.find_element_by_xpath('//*[@title="next page"]')
-    #next_page.click()
+             cell_number = re.findall(r'Cell: ([^\s]+)', raw_phone)
+             if(cell_number):
+                cell_numbers.append(cell_number[0])
+             else:
+                cell_numbers.append("N/A")
+             fax_number = re.findall(r'Fax: ([^\s]+)', raw_phone)
+             if(fax_number):
+                fax_numbers.append(fax_number[0])
+             else:
+                fax_numbers.append("N/A")
+        except:
+             office_numbers.append("N/A")
+             fax_numbers.append("N/A")
+             cell_numbers.append("N/A")
+    next_page = browser.find_element_by_xpath('//*[@title="next page"]')
+    next_page.click()
 
 browser.close()
 
@@ -103,9 +115,15 @@ big_data["Profile Picture"] = profile_images
 big_data["Email"] = emails
 big_data["URL"] = urls
 big_data["Original Search"] = original_search
+big_data["Recent Search"] = recent_search
+big_data["Address"] = mailing_address
 big_data["Office Number"] = office_numbers
 big_data["Cell Number"] = cell_numbers
 big_data["Fax Number"] = fax_numbers
 
 
-big_data.to_csv('spire_law.csv', sep='\t')
+
+old_data = pd.read_csv('spire_law.csv')
+big_data['Original Search'] = old_data['Original Search']
+
+big_data.to_csv('spire_law.csv', sep=',')
