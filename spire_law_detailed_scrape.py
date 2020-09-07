@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import numpy as np
 data = pd.read_csv('spire_law.csv')
 
-bar_nums = data['Bar Number'][0:5]
+bar_nums = data['Bar Number'][0:30]
 
 
 member_status = []
@@ -26,20 +26,31 @@ county = []
 law_school = []
 total_sections = []
 total_prac_areas = []
+practice_areas = []
 cell_numbers = []
 office_numbers = []
 fax_numbers = []
 addresses = []
 languages = []
+sections = []
+fed_courts = []
+state_courts = []
 browser = webdriver.Chrome("/Users/Buster/chromedriver")
 for num in bar_nums:
+   time.sleep(3)
    browser.get(f"https://www.floridabar.org/directories/find-mbr/?barNum={str(num)}")
    WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, "mProfile")))
 
-   status = browser.find_element_by_class_name('member-status')
-   member_status.append(status.text)
-   eligibility = browser.find_elements_by_class_name('eligibility')
-   fl_eligibility.append(eligibility[0].text)
+   try:
+       status = browser.find_element_by_class_name('member-status')
+       member_status.append(status.text)
+   except:
+       member_status.append("N/A")
+   try:
+       eligibility = browser.find_elements_by_class_name('eligibility')
+       fl_eligibility.append(eligibility[0].text)
+   except:
+       member_status.append("N/A")
    bar_numbers.append(num)
    labels = browser.find_elements_by_class_name('col-sm-3')
    label_data = browser.find_elements_by_class_name('col-sm-9')
@@ -53,7 +64,6 @@ for num in bar_nums:
    att_dict = {}
    for (x,y) in att_zip:
        att_dict[str(x)] = y
-   total_sections.append(len(att_dict.keys()))
    try:
        office_number = re.findall(r'Office: ([^\s]+)', att_dict['Mail Address'])[0]
        office_numbers.append(office_number)
@@ -107,25 +117,65 @@ for num in bar_nums:
        law_school.append('N/A')
    try:
        areas = (att_dict['Practice Areas']).split('\n')
+       text_areas = (att_dict['Practice Areas']).replace('\n',", ")
        total_prac_areas.append(len(areas))
+       practice_areas.append(text_areas)
    except:
        total_prac_areas.append('N/A')
+       practice_areas.append("N/A")
    try:
        raw_lang = att_dict['Languages']
        languages.append(raw_lang.replace('\n',", "))
    except:
        languages.append('N/A')
+   try:
+       raw_sections = att_dict['Sections'].split("\n")
+       text_sections = att_dict['Sections'].replace('\n',", ")
+       total_sections.append(len(raw_sections))
+       sections.append(text_sections)
+   except:
+       total_sections.append(0)
+       sections.append("N/A")
+   try:
+       raw_court = att_dict['Federal Courts']
+       fed_courts.append(raw_court.replace('\n',", "))
+   except:
+       fed_courts.append('N/A')
+   try:
+       raw_court = att_dict['State Courts']
+       state_courts.append(raw_court.replace('\n',", "))
+   except:
+       state_courts.append('N/A')
 
-print(fax_numbers)
-
+print(state_courts)
 browser.close()
 
 
-"""
+
 detailed_data = pd.DataFrame()
-detailed_data["Bar Number"] = bar_numbers
-detailed_data["Membership Status"] = member_status
-detailed_data["Eligibility"] = fl_eligibility
+detailed_data["Membership Status"]=member_status
+detailed_data["Eligibility"]=fl_eligibility
+detailed_data["Bar Number"]=bar_numbers
+detailed_data["Firm URL"]=company_url
+detailed_data["Firm"]=firms
+detailed_data["Firm Position"]=firm_position
+detailed_data["Firm Size"]=firm_size
+detailed_data["10-Year Discipline"]=ten_year
+detailed_data["Admitted Date"]=admitted_date
+detailed_data["Circuit"]=circuit
+detailed_data["County"]=county
+detailed_data["Law School"]=law_school
+detailed_data["Total # of Sections"]=total_sections
+detailed_data["Total # of Practice Area"]=total_prac_areas
+detailed_data["Sections"]=sections
+detailed_data["Practice Areas"]=practice_areas
+detailed_data["Cell Number"]=cell_numbers
+detailed_data["Cell Number"]=office_numbers
+detailed_data["Cell Number"]=fax_numbers
+detailed_data["Languages"]=languages
+detailed_data["Federal Courts"]=fed_courts
+detailed_data["State Courts"]=state_courts
 
 
-"""
+
+detailed_data.to_csv('spire_detailed_law.csv', sep=',')
