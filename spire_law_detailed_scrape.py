@@ -14,7 +14,6 @@ bar_nums = data['Bar Number'][0:30]
 
 member_status = []
 fl_eligibility = []
-bar_numbers = []
 company_url = []
 firms = []
 ten_year = []
@@ -27,9 +26,6 @@ law_school = []
 total_sections = []
 total_prac_areas = []
 practice_areas = []
-cell_numbers = []
-office_numbers = []
-fax_numbers = []
 addresses = []
 languages = []
 sections = []
@@ -51,7 +47,6 @@ for num in bar_nums:
        fl_eligibility.append(eligibility[0].text)
    except:
        fl_eligibility.append("N/A")
-   bar_numbers.append(num)
    labels = browser.find_elements_by_class_name('col-sm-3')
    label_data = browser.find_elements_by_class_name('col-sm-9')
    section_labels = []
@@ -64,21 +59,6 @@ for num in bar_nums:
    att_dict = {}
    for (x,y) in att_zip:
        att_dict[str(x)] = y
-   try:
-       office_number = re.findall(r'Office: ([^\s]+)', att_dict['Mail Address'])[0]
-       office_numbers.append(office_number)
-   except:
-       office_numbers.append("N/A")
-   try:
-       cell_number = re.findall(r'Cell: ([^\s]+)', att_dict['Mail Address'])[0]
-       cell_numbers.append(cell_number)
-   except:
-       cell_numbers.append("N/A")
-   try:
-       fax_number = re.findall(r'Fax: ([^\s]+)', att_dict['Mail Address'])[0]
-       fax_numbers.append(fax_number)
-   except:
-       fax_numbers.append("N/A")
    try:
        company_url.append(att_dict['Firm Website'])
    except:
@@ -147,7 +127,6 @@ for num in bar_nums:
    except:
        state_courts.append('N/A')
 
-print(state_courts)
 browser.close()
 
 
@@ -155,7 +134,6 @@ browser.close()
 detailed_data = pd.DataFrame()
 detailed_data["Membership Status"]=member_status
 detailed_data["Eligibility"]=fl_eligibility
-detailed_data["Bar Number"]=bar_numbers
 detailed_data["Firm URL"]=company_url
 detailed_data["Firm"]=firms
 detailed_data["Firm Position"]=firm_position
@@ -169,9 +147,6 @@ detailed_data["Total # of Sections"]=total_sections
 detailed_data["Total # of Practice Area"]=total_prac_areas
 detailed_data["Sections"]=sections
 detailed_data["Practice Areas"]=practice_areas
-detailed_data["Cell Number"]=cell_numbers
-detailed_data["Cell Number"]=office_numbers
-detailed_data["Cell Number"]=fax_numbers
 detailed_data["Languages"]=languages
 detailed_data["Federal Courts"]=fed_courts
 detailed_data["State Courts"]=state_courts
