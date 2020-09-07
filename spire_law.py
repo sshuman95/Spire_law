@@ -126,4 +126,4 @@ big_data["Fax Number"] = fax_numbers
 old_data = pd.read_csv('spire_law.csv')
 big_data['Original Search'] = old_data['Original Search']
 
-big_data.to_csv('spire_law.csv', sep=',')
+big_data.to_csv('spire_law.csv', sep='|')
