@@ -50,7 +50,7 @@ for num in bar_nums:
        eligibility = browser.find_elements_by_class_name('eligibility')
        fl_eligibility.append(eligibility[0].text)
    except:
-       member_status.append("N/A")
+       fl_eligibility.append("N/A")
    bar_numbers.append(num)
    labels = browser.find_elements_by_class_name('col-sm-3')
    label_data = browser.find_elements_by_class_name('col-sm-9')
@@ -178,4 +178,4 @@ detailed_data["State Courts"]=state_courts
 
 
 
-detailed_data.to_csv('spire_detailed_law.csv', sep=',')
+detailed_data.to_csv('spire_detailed_law.csv', sep='|')
