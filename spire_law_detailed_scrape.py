@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import numpy as np
-data = pd.read_csv('spire_law.csv')
+data = pd.read_csv('spire_law.csv',sep='|')
 
 bar_nums = data['Bar Number'][0:30]
 
